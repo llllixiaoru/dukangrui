@@ -48,3 +48,31 @@ const observer = new IntersectionObserver(
 );
 
 fadeSections.forEach(sec => observer.observe(sec));
+// =============== 思维导图：节点折叠 / 展开 ===============
+document.addEventListener("DOMContentLoaded", () => {
+    const toggles = document.querySelectorAll("[data-node-toggle]");
+
+    toggles.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const branch = btn.closest(".mindmap-branch");
+            if (!branch) return;
+
+            // 找到本分支的第一层子列表
+            const firstLevel = branch.querySelector(".mindmap-level");
+            const indicator = btn.querySelector(".mindmap-node-indicator");
+
+            if (!firstLevel) return;
+
+            const isOpen = firstLevel.classList.contains("mindmap-open");
+            if (isOpen) {
+                firstLevel.classList.remove("mindmap-open");
+                firstLevel.classList.add("mindmap-closed");
+                if (indicator) indicator.textContent = "+";
+            } else {
+                firstLevel.classList.remove("mindmap-closed");
+                firstLevel.classList.add("mindmap-open");
+                if (indicator) indicator.textContent = "−";
+            }
+        });
+    });
+});
