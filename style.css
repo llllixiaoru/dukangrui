@@ -1,0 +1,339 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #f3f4f6;
+    --bg-soft: #e5e7eb;
+    --white: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --accent-2: #10b981;
+    --border: #e5e7eb;
+    --radius-lg: 18px;
+    --shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    --max-width: 1120px;
+    --sidebar-width: 280px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    sans-serif;
+    background: radial-gradient(circle at 0% 0%, #bfdbfe 0, transparent 55%),
+                radial-gradient(circle at 100% 0%, #bbf7d0 0, transparent 55%),
+                var(--bg);
+    color: var(--text-main);
+    line-height: 1.7;
+}
+
+/* 背景轻微噪点层（可选） */
+.page-bg,
+.page-noise {
+    display: none;
+}
+
+/* 整体布局：左侧栏 + 右侧主内容 */
+.page-shell {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 2rem;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    gap: 1.5rem;
+}
+
+/* 侧边栏 */
+.sidebar {
+    background: linear-gradient(135deg, #eff6ff, #ecfdf5);
+    border-radius: 24px;
+    padding: 1.4rem 1.2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid #dbeafe;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.avatar-card {
+    text-align: center;
+}
+
+.avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+    margin-bottom: 0.6rem;
+}
+
+.name {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.sidebar-info {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.sidebar-info a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.sidebar-info a:hover {
+    text-decoration: underline;
+}
+
+.side-nav {
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 0.6rem;
+    border: 1px solid #d1d5db;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.side-nav a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    transition: 0.15s ease-out;
+}
+
+.side-nav a:hover {
+    background: var(--accent-soft);
+    color: #1d4ed8;
+}
+
+.sidebar-footer {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+/* 主内容区 */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* section 通用 */
+.section {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 24px;
+    padding: 1.4rem 1.4rem 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.section-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-bottom: 0.2rem;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 56px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* hero 区域 */
+.hero-section {
+    background: radial-gradient(circle at 0% 0%, #eff6ff 0, transparent 60%),
+                radial-gradient(circle at 100% 100%, #ecfdf5 0, transparent 60%),
+                #ffffff;
+}
+
+.hero-kicker {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #6b7280;
+    margin-bottom: 0.4rem;
+}
+
+.hero-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text {
+    font-size: 0.96rem;
+    color: var(--text-muted);
+    max-width: 40rem;
+}
+
+.hero-pill-row {
+    margin-top: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.pill {
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1d4ed8;
+}
+
+/* 卡片、网格 */
+.card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 1rem 1.1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.9rem;
+}
+
+/* 列表 */
+.list {
+    margin-left: 1.1rem;
+    font-size: 0.94rem;
+    color: var(--text-muted);
+}
+
+.list li + li {
+    margin-top: 0.25rem;
+}
+
+/* 项目卡片 */
+.project-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.project-tag {
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    margin-bottom: 0.4rem;
+}
+
+/* 按钮 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.15s ease-out;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #f9fafb;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn-ghost {
+    background: #ffffff;
+    border-color: #cbd5f5;
+    color: #1d4ed8;
+}
+
+.btn-ghost:hover {
+    background: #eff6ff;
+}
+
+/* 联系卡片内的链接 */
+.card a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* 回到顶部按钮 */
+#backToTop {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #111827;
+    color: #f9fafb;
+    cursor: pointer;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.6);
+    display: none;
+}
+
+/* 淡入动画 */
+.fade {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 响应式 */
+@media (max-width: 880px) {
+    .page-shell {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        flex-direction: column;
+        position: sticky;
+        top: 0.5rem;
+        z-index: 10;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-section h2 {
+        font-size: 1.3rem;
+    }
+    .section {
+        padding-inline: 1rem;
+    }
+}
