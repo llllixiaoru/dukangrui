@@ -337,3 +337,134 @@ body {
         padding-inline: 1rem;
     }
 }
+/* =============== Web 思维导图：超声成像知识图谱 =============== */
+
+.mindmap-wrapper {
+    margin-top: 1rem;
+    padding: 1.2rem 1rem 1.4rem;
+    border-radius: 18px;
+    border: 1px dashed #d1d5db;
+    background: radial-gradient(circle at 0 0, #eff6ff 0, transparent 55%),
+                radial-gradient(circle at 100% 100%, #ecfdf5 0, transparent 55%),
+                #ffffff;
+    overflow-x: auto;
+}
+
+/* 居中布局 */
+.mindmap-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+/* 中心节点 */
+.mindmap-center-node {
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #f9fafb;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 14px 35px rgba(37, 99, 235, 0.4);
+    position: relative;
+}
+
+.mindmap-center-sub {
+    font-size: 0.78rem;
+    opacity: 0.9;
+}
+
+/* 第一圈分支整体：左右排布 */
+.mindmap-branches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 0.9rem;
+    width: 100%;
+}
+
+/* 单个分支卡片 */
+.mindmap-branch {
+    background: #f9fafb;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    padding: 0.7rem 0.7rem 0.8rem;
+    position: relative;
+}
+
+/* 分支顶部节点（一级节点，可折叠） */
+.mindmap-node {
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #eff6ff;
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+    color: #1d4ed8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.mindmap-node:hover {
+    background: #dbeafe;
+}
+
+.mindmap-node-indicator {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* 列表结构 */
+.mindmap-level {
+    list-style: none;
+    margin: 0.45rem 0 0 0.2rem;
+    padding-left: 0.7rem;
+    border-left: 1px dashed #e5e7eb;
+    font-size: 0.86rem;
+    color: #4b5563;
+}
+
+.mindmap-level li + li {
+    margin-top: 0.2rem;
+}
+
+/* 二级标题（例如“探头类型”） */
+.mindmap-subtitle {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.86rem;
+    margin-bottom: 0.15rem;
+    color: #111827;
+}
+
+/* 叶子节点 */
+.mindmap-leaf {
+    display: inline-block;
+    padding: 0.12rem 0.4rem;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    font-size: 0.82rem;
+}
+
+/* 折叠时隐藏下级 */
+.mindmap-level.mindmap-open {
+    display: block;
+}
+
+.mindmap-level.mindmap-closed {
+    display: none;
+}
+
+/* 小屏优化 */
+@media (max-width: 640px) {
+    .mindmap-wrapper {
+        padding-inline: 0.6rem;
+    }
+}
